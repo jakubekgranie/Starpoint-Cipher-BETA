@@ -1,6 +1,6 @@
-
 #include <iostream>
-#include <cstdlib>
+#include <stdlib.h>
+#include <time.h>
 
 using namespace std;
 
@@ -11,12 +11,13 @@ int main()
     bool ceout = true;
     char characterencoding[255];
     cin >> phrase;
+    srand (time(NULL));
     for (int i = 0; i <= 254; i++) //generuj klucz
     {
         int randomnb = (rand() % (ub - lb + 1)) + lb;
         if (i != 0)
         {
-            for (int e = 0; e == i; e++) //weryfikuj, czy encja ju¿ wyst¹pi³a
+            for (int e = 0; e == i; e++) //weryfikuj, czy encja juÂ¿ wystÂ¹piÂ³a
             {
                 if ((char)randomnb == characterencoding[e] && randomnb >= 32)
                 {
@@ -29,11 +30,11 @@ int main()
                     ceout = false;
                 }
             }
-            if (ceout == true) //scenariusz: encja nie wyst¹pi³a
+            if (ceout == true) //scenariusz: encja nie wystÂ¹piÂ³a
             {
                 cout << (char)randomnb;
             }
-            else //scenariusz: encja wyst¹pi³a (reset cyklu)
+            else //scenariusz: encja wystÂ¹piÂ³a (reset cyklu)
             {
                 ceout = true;
             }
